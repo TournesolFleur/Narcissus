@@ -1,0 +1,34 @@
+ .overflow-hide{
+    overflow: hidden;
+  }
+  .border-box{
+    box-sizing: border-box;
+  }
+  .relative{
+    position: relative;
+  }
+  
+  .transition{
+    transition: all 0.3s;
+  }
+  
+  .transparent{
+    background-color: transparent;
+  }
+  
+  .flex{
+    display: flex;
+  }
+  .flex-one{
+    display: flex;
+    flex: 1;
+  }
+  .flex-align{
+    display: flex;
+    align-items: center;
+  }
+  .flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

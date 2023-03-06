@@ -1,0 +1,87 @@
+{
+  "name": "narcissus",
+  "displayName": "narcissus",
+  "description": "chat-get",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "narcissus_chatbar_side",
+          "title": "Narcissus",
+          "icon": "media/main.svg"
+        }
+      ]
+    },
+    "views": {
+      "narcissus_chatbar_side": [
+        {
+          "icon": "media/main.svg",
+          "id": "narcossus.chatview",
+          "type": "webview",
+          "name": "Narcissus"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "narcissus.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "npm-run-all compile:*",
+    "compile:extension": "tsc -p ./",
+    "compile:view": "webpack --mode development",
+    "watch": "npm-run-all -p watch:*",
+    "watch:extension": "tsc -watch -p ./",
+    "watch:view": "webpack --watch --mode development",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/markdown-it": "^12.2.3",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.54.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "@vscode/test-electron": "^2.2.3",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "sass": "^1.58.3",
+    "sass-loader": "^13.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
+    "@violets/font": "^1.0.0",
+    "css-loader": "^6.7.3",
+    "markdown-it": "^13.0.1",
+    "markdown-it-highlightjs": "^4.0.1",
+    "markdown-it-katex": "^2.0.3",
+    "npm-run-all": "^4.1.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.2",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

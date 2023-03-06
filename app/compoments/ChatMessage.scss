@@ -1,0 +1,22 @@
+.user-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    margin: 10px 15px 10px 5px;
+    background-image: linear-gradient(var(--chat-gradient-shape), var(--orange), rgba(187, 247, 208, 1), var(--lightgreen));
+
+    &.user-icon-user {
+      background-image: linear-gradient(var(--chat-gradient-shape), var(--mainColor), rgb(4, 168, 154), var(--lightgreen));
+    }
+  }
+  .chat-message{
+ 
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      min-height: 48px;
+
+      &:hover {
+        background-color: var(--hover);
+      }
+
+  }

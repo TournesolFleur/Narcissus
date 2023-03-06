@@ -1,0 +1,17 @@
+@import "./variable";
+@import "./short";
+@import "./animation";
+@import url("../../node_modules/@violets/font/FluentSystemIcons-Regular.css");
+html,body,#app,.full,#app{
+    width:100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.main-container{
+    padding: 5px 10px;
+    .message-container{
+        max-height: calc(100% - 50px);
+        overflow-y: auto;
+    }
+}

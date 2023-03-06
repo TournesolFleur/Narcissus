@@ -1,0 +1,23 @@
+.chat-box {
+    border-radius: 3px;
+    position: relative;
+    color: var(--mainFont);
+    background-color: #2a2d36;
+    input {
+      width: 100%;
+      resize: none;
+      border: none;
+      color: var(--mainFont);
+      min-height: 48px;
+      padding: 1rem 2rem 1rem 1rem;
+      &:focus-visible {
+        outline: none;
+        border: none;
+      }
+    }
+    .icon-button{
+        position: absolute;
+        top:6px;
+        right: 6px;
+    }
+}
