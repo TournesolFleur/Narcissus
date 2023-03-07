@@ -20,19 +20,19 @@ export class App extends Component<{},AppState>{
         
     }
 
-    sendMessage= async (text:string)=>{
+    sendMessage=  (text:string)=>{
       this.setState({think:true});
       const message= this.state.Message;
+      debugger
       message.push(new MessageInfo(text));
       const post= [...message];
       const data= new MessageInfo("",MessageRole.think);
       message.push(data);
       this.setState({        Message:message      });
-      await DataRequest.Stream(post,()=>data.role=MessageRole.assistant, text=>{
+      DataRequest.Stream(post,()=>data.role=MessageRole.assistant, text=>{
         data.content+=text;
         this.setState({        Message:message      });
-     });
-     this.setState({think:false});
+     }).then(s=> this.setState({think:false}));
     }
 
 
@@ -41,7 +41,7 @@ export class App extends Component<{},AppState>{
           <div className="message-container">
              {this.state.Message.map(s=> <ChatMessage key={s.id} role={s.role} content={s.content}></ChatMessage> )}
           </div>
-          <ChatBox canSend={this.state.think}  onMessage={this.sendMessage}></ChatBox>
+          <ChatBox canSend={!this.state.think}  onMessage={this.sendMessage}></ChatBox>
        </div>
     }   
 }

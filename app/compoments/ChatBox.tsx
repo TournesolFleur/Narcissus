@@ -36,7 +36,7 @@ export class ChatBox extends Component<ChatBoxProps>{
     render(): ReactNode {
         return <div className="chat-box transition">
            <input ref={this.textInput} type="text" onKeyDown={e=>this.inputKeyDownHandle(e)}  placeholder="请输入消息" className="transparent border-box" />
-           <IconButton icon="icon-send_28" onClick={this.SendMessage}></IconButton>
+           <IconButton icon={this.props.canSend?"icon-send_28":"icon-dismiss_circle_32"}  onClick={this.SendMessage}></IconButton>
         </div>
     }
 }
