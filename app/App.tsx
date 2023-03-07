@@ -20,27 +20,28 @@ export class App extends Component<{},AppState>{
         
     }
 
-    sendMessage= (text:string)=>{
+    sendMessage= async (text:string)=>{
       this.setState({think:true});
       const message= this.state.Message;
       message.push(new MessageInfo(text));
       const post= [...message];
-      const data= new MessageInfo("null",MessageRole.think);
+      const data= new MessageInfo("",MessageRole.think);
       message.push(data);
       this.setState({        Message:message      });
-      DataRequest.Stream(post,()=>data.role=MessageRole.assistant, text=>{
+      await DataRequest.Stream(post,()=>data.role=MessageRole.assistant, text=>{
         data.content+=text;
         this.setState({        Message:message      });
      });
+     this.setState({think:false});
     }
 
 
     render(): ReactNode {
       return   <div className="main-container full border-box">
           <div className="message-container">
-             {this.state.Message.map(s=> <ChatMessage key={s.content} role={s.role} content={s.content}></ChatMessage> )}
+             {this.state.Message.map(s=> <ChatMessage key={s.id} role={s.role} content={s.content}></ChatMessage> )}
           </div>
-          <ChatBox canSend={true}  onMessage={this.sendMessage}></ChatBox>
+          <ChatBox canSend={this.state.think}  onMessage={this.sendMessage}></ChatBox>
        </div>
     }   
 }

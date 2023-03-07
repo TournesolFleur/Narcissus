@@ -4,4 +4,6 @@ export interface IMessageInfo{
     content:string;
 
     role:MessageRoleType;
+
+    id?:number;
 }
